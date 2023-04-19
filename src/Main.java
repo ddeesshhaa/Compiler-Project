@@ -5,7 +5,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String inputFile = "code.java";
+        String inputFile = "Example.java";
         FileInputStream inputStream = new FileInputStream(inputFile);
         ANTLRInputStream input = new ANTLRInputStream(inputStream);
         JavaLexer lexer = new JavaLexer(input);
@@ -14,7 +14,7 @@ public class Main {
         ParseTree tree = parser.compilationUnit();      //first rule of grammer
         ParseTreeWalker walker = new ParseTreeWalker(); //traverse on tree with listner
         TokenStreamRewriter rewriter = new TokenStreamRewriter(tokens); //
-        walker.walk(new listner1(rewriter), tree);
+        walker.walk(new blockListener(rewriter), tree);
 
         File output = new File("task1.java");
         output.createNewFile();
