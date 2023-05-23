@@ -11,7 +11,7 @@ public class main {
         }
         for(int i=0;i<x;i++){
         }
-        if(x==5 || x>5)x--;
+        if(x==5 || x>5){x--;}
 
 
     }
